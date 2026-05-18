@@ -1,4 +1,4 @@
-# Sensitive and local-only files
+﻿# Sensitive and local-only files
 *.env
 .env
 .env.*
