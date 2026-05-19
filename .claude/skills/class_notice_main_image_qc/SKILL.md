@@ -78,6 +78,14 @@ description: Use when the user asks to 质检6张主图, 运行主图质检, 生
 - 文件名：`YYYYMMDD_班级通知_6张主图拼图预览.png`
 - 保存到：`18-运行日志/主图质检/`
 
+同时生成一份压缩后的 JPG 给 ChatGPT 临时查看：
+
+- 文件名：`latest_6张主图拼图预览.jpg`
+- 保存到：`90-临时给ChatGPT看的图片/latest_6张主图拼图预览.jpg`
+- 新一轮生成时可以覆盖旧文件
+
+不要同步 6 张主图原图。不要同步副图。
+
 ## 生成主图质检报告
 
 报告路径：
@@ -125,10 +133,14 @@ description: Use when the user asks to 质检6张主图, 运行主图质检, 生
 
 运行质检后，只同步：
 
-- 主图拼图预览图
+- 压缩后的主图拼图预览 JPG：`90-临时给ChatGPT看的图片/latest_6张主图拼图预览.jpg`
 - 主图质检报告
 
-不要同步全部副图。不要把完整图片库上传 GitHub。
+不要同步 6 张主图原图。不要同步全部副图。不要把完整图片库上传 GitHub。
+
+ChatGPT 复核完成后，提示用户：
+
+“ChatGPT 复核完成后，请执行：清理GitHub临时图片。”
 
 ## 完成后输出
 
@@ -140,3 +152,4 @@ description: Use when the user asks to 质检6张主图, 运行主图质检, 生
 - 哪些主图通过
 - 哪些主图需要 ChatGPT 复核
 - 哪些主图建议重做
+- 提醒：ChatGPT 复核完成后，请执行“清理GitHub临时图片”。

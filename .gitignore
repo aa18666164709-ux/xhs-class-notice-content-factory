@@ -35,3 +35,7 @@ logs/raw/
 临时图片缓存/
 generated_images/
 *.log
+90-临时给ChatGPT看的图片/*.png
+90-临时给ChatGPT看的图片/*.webp
+90-临时给ChatGPT看的图片/problem_*.png
+90-临时给ChatGPT看的图片/problem_*.webp
