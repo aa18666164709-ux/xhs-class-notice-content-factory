@@ -1,6 +1,6 @@
 ---
 name: class_notice_main_image_qc
-description: Use when the user asks to 质检6张主图, 运行主图质检, 生成主图拼图, or 检查本轮主图 for 班级通知 Xiaohongshu publish packages. This skill performs lightweight QC: deep-review main images only, while sub-images are checked only for existence and stable filenames.
+description: Use when the user asks to 质检6张主图, 运行主图质检, 生成主图拼图, 检查本轮主图, or 运行主图归档并上传GitHub for 班级通知 Xiaohongshu publish packages. This skill performs lightweight QC: deep-review main images only, while sub-images are checked only for existence and stable filenames.
 ---
 
 # Class Notice Main Image QC
@@ -11,6 +11,7 @@ description: Use when the user asks to 质检6张主图, 运行主图质检, 生
 - 运行主图质检
 - 生成主图拼图
 - 检查本轮主图
+- 运行主图归档并上传GitHub
 
 ## 核心原则
 
@@ -25,6 +26,22 @@ description: Use when the user asks to 质检6张主图, 运行主图质检, 生
 `E:\优逸店资料截图\班级通知\笔记素材\生成成品图片`
 
 每轮优先扫描本轮 6 个发布包文件夹。若无法确定“本轮”是哪 6 个文件夹，先列出候选发布包并请用户确认，不要擅自挑选。
+
+## 标准使用流程
+
+默认流程如下：
+
+1. 6 个做图窗口各做 1 张主图。
+2. 每张主图保存到各自发布包文件夹，文件名必须是 `主图.png`。
+3. 用户回到本地知识库 / Codex 窗口说：`运行主图归档并上传GitHub`。
+4. Codex 扫描本轮 6 个发布包文件夹。
+5. Codex 确认 6 张 `主图.png` 都齐了。
+6. Codex 生成 6 张主图拼图预览。
+7. Codex 把压缩后的拼图上传到 GitHub 临时目录。
+8. 用户让 ChatGPT 看 GitHub 临时图片，或让 Codex 把拼图路径发给用户。
+9. 用户和 ChatGPT 只复核主图。
+
+如果 6 张主图未齐，必须停止并列出缺失的发布包，不生成拼图，不上传 GitHub。
 
 ## 每个发布包读取内容
 
@@ -83,6 +100,8 @@ description: Use when the user asks to 质检6张主图, 运行主图质检, 生
 - 文件名：`latest_6张主图拼图预览.jpg`
 - 保存到：`90-临时给ChatGPT看的图片/latest_6张主图拼图预览.jpg`
 - 新一轮生成时可以覆盖旧文件
+
+GitHub 临时目录只放这张压缩拼图，供 ChatGPT 快速看主图质量。
 
 不要同步 6 张主图原图。不要同步副图。
 
